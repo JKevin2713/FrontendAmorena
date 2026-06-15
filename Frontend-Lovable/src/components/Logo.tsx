@@ -9,7 +9,7 @@ const TONE_FILTERS: Record<string, string> = {
   emerald: "invert(22%) sepia(95%) saturate(1500%) hue-rotate(140deg) brightness(95%) contrast(105%)", // #006740
   pink: "invert(88%) sepia(15%) saturate(1500%) hue-rotate(280deg) brightness(105%) contrast(100%)", // #F8C8DC
 };
-export function Logo({ tone = "dark", className = "h-16" }: { tone?: "dark" | "light" | "green" | "brown"; className?: string }) {
+export function Logo({ tone = "dark", className = "h-16" }: { tone?: "dark" | "light" | "green" | "brown" | "tan" | "emerald" | "pink"; className?: string }) {
   return (
     <img
       src={logoSvg}

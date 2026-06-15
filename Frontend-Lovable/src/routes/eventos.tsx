@@ -102,7 +102,6 @@ function EventsPage() {
           <div className={`flex items-center gap-2 ${compact ? "mt-2 text-xs" : "mt-4 text-sm"} font-serif`} style={{ color: "var(--coffee)" }}>
             <MapPin size={compact ? 13 : 15} /> {location}{event.hora && ` - ${event.hora}`}
           </div>
-          <button className={`btn-primary ${compact ? "mt-3 text-sm" : "mt-6"} self-start`}>{t("events.reserve", "Reservar lugar")}</button>
         </div>
       </article>
     );

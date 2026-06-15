@@ -257,14 +257,7 @@ function CheckoutPage() {
                     <span className="font-serif font-bold text-[17px]">{t("checkout.type.table", "Pedido a mesa")}</span>
                   </button>
 
-                  <button
-                    type="button"
-                    onClick={() => { setOrderType("Recoger"); setFieldErrors(prev => ({ ...prev, type: undefined })); }}
-                    className={`flex flex-col items-center justify-center py-8 rounded-lg border-2 transition-all ${orderType === 'Recoger' ? 'bg-[var(--forest)] border-[var(--forest)] text-white shadow-lg scale-105' : 'bg-transparent border-[var(--forest)] text-[var(--forest)] hover:bg-[var(--forest)]/10'}`}
-                  >
-                    <Car size={64} strokeWidth={1.5} className="mb-4" />
-                    <span className="font-serif font-bold text-[17px]">{t("checkout.type.pickup", "Pedido para recoger")}</span>
-                  </button>
+
                 </div>
                 {fieldErrors.type && <span className="text-red-500 text-sm font-serif mt-1 text-center">{fieldErrors.type}</span>}
               </div>
