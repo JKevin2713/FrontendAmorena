@@ -1,0 +1,145 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "AmorenaScript";
+  src: local("Allura");
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-cream: var(--cream);
+  --color-tan: var(--tan);
+  --color-tan-dark: var(--tan-dark);
+  --color-forest: var(--forest);
+  --color-forest-dark: var(--forest-dark);
+  --color-coffee: var(--coffee);
+  --font-script: "Allura", "Great Vibes", cursive;
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand palette extracted from Amorena.pdf */
+  --cream: oklch(0.965 0.025 95);          /* #f7f1de */
+  --tan: oklch(0.82 0.06 75);              /* #d9bd91 */
+  --tan-dark: oklch(0.7 0.07 65);          /* #b89368 */
+  --forest: oklch(0.42 0.09 155);          /* #1f5a3c */
+  --forest-dark: oklch(0.32 0.08 155);
+  --coffee: oklch(0.32 0.04 50);           /* dark brown */
+
+  --background: var(--cream);
+  --foreground: oklch(0.18 0.02 50);
+  --card: oklch(0.99 0.01 95);
+  --card-foreground: oklch(0.18 0.02 50);
+  --popover: oklch(0.99 0.01 95);
+  --popover-foreground: oklch(0.18 0.02 50);
+  --primary: var(--forest);
+  --primary-foreground: var(--cream);
+  --secondary: var(--tan);
+  --secondary-foreground: var(--coffee);
+  --muted: oklch(0.93 0.02 85);
+  --muted-foreground: oklch(0.42 0.03 60);
+  --accent: var(--tan);
+  --accent-foreground: var(--coffee);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: var(--cream);
+  --border: oklch(0.86 0.04 80);
+  --input: oklch(0.88 0.03 80);
+  --ring: var(--forest);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+  h1, h2, h3 { font-family: var(--font-script); font-weight: 400; letter-spacing: 0.01em; }
+  .font-script { font-family: var(--font-script); }
+  .font-serif { font-family: var(--font-serif); }
+  .font-sans { font-family: var(--font-sans); }
+  input[type="search"]::-webkit-search-cancel-button {
+    appearance: none;
+    width: 0.9rem;
+    height: 0.9rem;
+    cursor: pointer;
+    background-color: var(--coffee);
+    opacity: 0.75;
+    mask:
+      linear-gradient(45deg, transparent 43%, #000 44%, #000 56%, transparent 57%),
+      linear-gradient(-45deg, transparent 43%, #000 44%, #000 56%, transparent 57%);
+    -webkit-mask:
+      linear-gradient(45deg, transparent 43%, #000 44%, #000 56%, transparent 57%),
+      linear-gradient(-45deg, transparent 43%, #000 44%, #000 56%, transparent 57%);
+  }
+  input[type="search"]::-webkit-search-cancel-button:hover {
+    background-color: var(--forest);
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background: var(--forest);
+    color: var(--cream);
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.375rem;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: all .25s ease;
+    display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .btn-primary:hover { background: var(--forest-dark); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid var(--forest);
+    color: var(--forest);
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.375rem;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: all .25s ease;
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: transparent;
+  }
+  .btn-outline:hover { background: var(--forest); color: var(--cream); }
+  .divider-ornament {
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+    color: var(--tan-dark);
+  }
+  .divider-ornament::before, .divider-ornament::after {
+    content: ""; flex: 1; height: 1px; background: var(--tan-dark); max-width: 220px; opacity: .6;
+  }
+}
