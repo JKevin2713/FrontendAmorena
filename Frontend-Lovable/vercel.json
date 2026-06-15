@@ -1,12 +1,21 @@
 {
-    "rewrites": [
+    "buildCommand": "npm run build",
+    "installCommand": "npm install",
+    "outputDirectory": ".vercel/output",
+    "functions": {
+        "dist/server/server.js": {
+            "runtime": "nodejs20.x",
+            "includeFiles": "dist/server/**"
+        }
+    },
+    "routes": [
         {
-            "source": "/api/(.*)",
-            "destination": "/api/$1"
+            "src": "/assets/(.*)",
+            "dest": "/client/assets/$1"
         },
         {
-            "source": "/(.*)",
-            "destination": "/index.html"
+            "src": "/(.*)",
+            "dest": "/dist/server/server.js"
         }
     ]
 }
